@@ -90,7 +90,15 @@ void Uart::begin(unsigned long baudrate, uint16_t config)
 
   uint32_t nrfBaudRate;
 
-  if (baudrate <= 1200) {
+  if (baudrate == 10753){
+  	 nrfBaudRate = 0x002C1000UL;
+  } else if (baudrate == 13513) {
+	 nrfBaudRate = 0x00376000UL;
+  } else if (baudrate == 13440) {
+	 nrfBaudRate = 0x00371000UL;
+  } else if (baudrate == 13333) {
+ 	 nrfBaudRate = 0x0036a000UL;
+  } else if (baudrate <= 1200) {
     nrfBaudRate = UARTE_BAUDRATE_BAUDRATE_Baud1200;
   } else if (baudrate <= 2400) {
     nrfBaudRate = UARTE_BAUDRATE_BAUDRATE_Baud2400;
