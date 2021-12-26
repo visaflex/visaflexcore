@@ -160,6 +160,7 @@ void Uart::begin(unsigned long baudrate, uint16_t config)
 
 void Uart::end()
 {
+  if (! _begun ) return;
   NVIC_DisableIRQ(IRQn);
 
   nrfUart->INTENCLR = UARTE_INTENSET_ENDRX_Msk | UARTE_INTENSET_ENDTX_Msk;
@@ -173,7 +174,7 @@ void Uart::end()
   // Wait for TXSTOPPED event and for RXTO event
   // This is required before disabling UART to fully power down transceiver PHY.
   // Otherwise transceiver will continue to consume ~900uA
-  while ( !(nrfUart->EVENTS_TXSTOPPED && nrfUart->EVENTS_RXTO) ) yield();
+//  while ( !(nrfUart->EVENTS_TXSTOPPED && nrfUart->EVENTS_RXTO) ) yield();
 
   nrfUart->ENABLE = UARTE_ENABLE_ENABLE_Disabled;
 
