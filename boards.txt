@@ -1,0 +1,67 @@
+menu.softdevice=SoftDevice
+menu.debug=Debug
+menu.debug_output=Debug Output
+
+
+# -----------------------------------
+# Visa Flex
+# -----------------------------------
+visaflex10.name=visa Flex
+
+# VID/PID for Bootloader, Arduino & CircuitPython
+visaflex10.vid.0=0x239A
+visaflex10.pid.0=0x8029
+visaflex10.vid.1=0x239A
+visaflex10.pid.1=0x0029
+visaflex10.vid.2=0x239A
+visaflex10.pid.2=0x002A
+visaflex10.vid.3=0x239A
+visaflex10.pid.3=0x802A
+
+# Upload
+visaflex10.bootloader.tool=bootburn
+visaflex10.upload.tool=nrfutil
+visaflex10.upload.protocol=nrfutil
+visaflex10.upload.use_1200bps_touch=true
+visaflex10.upload.wait_for_upload_port=true
+visaflex10.upload.maximum_size=815104
+visaflex10.upload.maximum_data_size=237568
+
+# Build
+visaflex10.build.mcu=cortex-m4
+visaflex10.build.f_cpu=64000000
+visaflex10.build.board=NRF52840_FEATHER
+visaflex10.build.core=nRF5
+visaflex10.build.variant=visa_flex
+visaflex10.build.usb_manufacturer="Adafruit"
+visaflex10.build.usb_product="Visa Flex"
+visaflex10.build.extra_flags=-DNRF52840_XXAA {build.flags.usb}
+visaflex10.build.ldscript=nrf52840_s140_v6.ld
+visaflex10.build.vid=0x239A
+visaflex10.build.pid=0x8029
+
+# SoftDevice Menu
+visaflex10.menu.softdevice.s140v6=S140 6.1.1
+visaflex10.menu.softdevice.s140v6.build.sd_name=s140
+visaflex10.menu.softdevice.s140v6.build.sd_version=6.1.1
+visaflex10.menu.softdevice.s140v6.build.sd_fwid=0x00B6
+
+# Debug Menu
+visaflex10.menu.debug.l0=Level 0 (Release)
+visaflex10.menu.debug.l0.build.debug_flags=-DCFG_DEBUG=0
+visaflex10.menu.debug.l1=Level 1 (Error Message)
+visaflex10.menu.debug.l1.build.debug_flags=-DCFG_DEBUG=1
+visaflex10.menu.debug.l2=Level 2 (Full Debug)
+visaflex10.menu.debug.l2.build.debug_flags=-DCFG_DEBUG=2
+visaflex10.menu.debug.l3=Level 3 (Segger SystemView)
+visaflex10.menu.debug.l3.build.debug_flags=-DCFG_DEBUG=3
+visaflex10.menu.debug.l3.build.sysview_flags=-DCFG_SYSVIEW=1
+
+# Debug Output Menu
+visaflex10.menu.debug_output.serial=Serial
+visaflex10.menu.debug_output.serial.build.logger_flags=-DCFG_LOGGER=0
+visaflex10.menu.debug_output.serial1=Serial1
+visaflex10.menu.debug_output.serial1.build.logger_flags=-DCFG_LOGGER=1 -DCFG_TUSB_DEBUG=CFG_DEBUG
+visaflex10.menu.debug_output.rtt=Segger RTT
+visaflex10.menu.debug_output.rtt.build.logger_flags=-DCFG_LOGGER=2 -DCFG_TUSB_DEBUG=CFG_DEBUG -DSEGGER_RTT_MODE_DEFAULT=SEGGER_RTT_MODE_BLOCK_IF_FIFO_FULL
+
